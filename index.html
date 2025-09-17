@@ -5,25 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Twintify — Digital Twin for Art, Architecture & Heritage</title>
 
-  <!-- Google Fonts (replace or remove if you prefer local fonts) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Basic styling -->
   <style>
     :root{
-      --accent:#246B5B; /* deep green */
+      --accent:#246B5B;
       --muted:#6b7280;
       --bg:#f7f7f9;
       --card:#ffffff;
       --max-width:1100px;
       --radius:12px;
-      --glass: rgba(255,255,255,0.6);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-family: 'Inter', system-ui;
       color:#111827;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#fbfcfd 0%, var(--bg) 100%);-webkit-font-smoothing:antialiased}
-
+    body{margin:0;background:#fbfcfd;-webkit-font-smoothing:antialiased}
     .container{max-width:var(--max-width);margin:0 auto;padding:28px}
 
     header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
@@ -35,54 +32,56 @@
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
     nav a.cta{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;text-decoration:none}
 
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .hero h1{font-size:34px;margin:0 0 12px;font-weight:700}
+    section{padding:50px 0}
+    section h2{font-size:26px;margin-bottom:16px;color:var(--accent)}
+    section p.lead{color:var(--muted);margin:0 0 16px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:50px 0}
+    .hero h1{font-size:38px;margin:0 0 12px;font-weight:700;color:var(--accent)}
     .hero p{margin:0 0 18px;color:var(--muted);line-height:1.6}
     .hero .actions{display:flex;gap:12px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn{padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600}
     .btn.primary{background:var(--accent);color:white}
     .btn.ghost{border:1px solid #e6e7eb;color:var(--accent);background:transparent}
-
     .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 20px rgba(17,24,39,0.06);overflow:hidden}
-    .hero-visual{height:320px;background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=');background-size:cover;background-position:center}
+    .hero-visual{height:320px;background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop');background-size:cover;background-position:center}
 
-    section{margin:34px 0}
-    h2{font-size:20px;margin:0 0 12px}
-    p.lead{color:var(--muted);margin:0 0 8px}
+    /* Section backgrounds */
+    #about{background:#f0f9f7}
+    #goals{background:#fff}
+    #services{background:#f9f9fb}
+    #clients{background:#f0f4f9}
+    #contact{background:#fff}
 
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .services-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .service{padding:14px;border-radius:10px;border:1px solid #eef2f6;background:linear-gradient(180deg, #ffffff, #fbfdff)}
-    .service h4{margin:0 0 6px}
-    .service p{margin:0;color:var(--muted);font-size:14px}
+    .goals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .goal{padding:20px;border-radius:12px;background:#ffffff;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+    .goal strong{color:var(--accent)}
+    .goal p{margin:8px 0 0;color:var(--muted)}
+
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .service-card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column}
+    .service-card img{width:100%;height:160px;object-fit:cover}
+    .service-card .content{padding:16px}
+    .service-card h4{margin:0 0 8px;color:var(--accent)}
+    .service-card p{margin:0;color:var(--muted);font-size:14px}
 
     ul.clients{display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0;margin:12px 0}
     ul.clients li{background:#fff;border-radius:8px;padding:8px 12px;border:1px solid #eef2f6;color:var(--muted);font-weight:600}
 
-    .goals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-    .goal{padding:16px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid #eef3f8}
-    .goal p{margin:8px 0 0;color:var(--muted)}
-
     footer{padding:28px 0;border-top:1px solid #eef2f6;color:var(--muted)}
 
-    /* responsive */
-    @media (max-width:960px){
-      .hero{grid-template-columns:1fr;}
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr}
       .hero-visual{height:220px}
-      .grid-2{grid-template-columns:1fr}
-      .services-list{grid-template-columns:1fr}
       .goals{grid-template-columns:1fr}
-      nav{display:none}
     }
   </style>
 </head>
 <body>
   <div class="container">
-
     <header>
       <div class="brand">
-        <!-- Replace the SVG below with your own logo.svg if you have one -->
-        <div style="width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#dfeee8,#ffffff);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(36,107,91,0.08)">
+        <div style="width:64px;height:64px;border-radius:10px;background:#eaf5f3;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(36,107,91,0.08)">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
             <rect x="2" y="3" width="20" height="18" rx="3" stroke="var(--accent)" stroke-width="1.4" fill="none" />
             <path d="M6 8h12M6 12h8" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round" />
@@ -93,11 +92,11 @@
           <div class="sub">Digital Twin for Art, Architecture & Heritage</div>
         </div>
       </div>
-
       <nav>
         <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#goals">Goals</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
         <a href="#contact" class="cta">Contact</a>
       </nav>
     </header>
@@ -106,128 +105,80 @@
       <section class="hero">
         <div>
           <h1>Digital twins that preserve value — from heritage sites to immersive environments</h1>
-          <p class="lead">Twintify creates precise, usable digital records and photoreal environments to support conservation, resilient design, simulation and immersive storytelling. We work with architects, conservators, structural engineers, promoters, and XR developers to deliver data-rich, production-ready models and visualisations.</p>
+          <p class="lead">Twintify creates precise, usable digital records and photoreal environments to support conservation, resilient design, simulation and immersive storytelling.</p>
           <div class="actions">
             <a href="#contact" class="btn primary">Work with us</a>
             <a href="#services" class="btn ghost">Our services</a>
           </div>
         </div>
-
         <div class="card">
           <div class="hero-visual"></div>
-          <div style="padding:18px">
-            <strong>Practical focus</strong>
-            <p style="margin:8px 0 0;color:var(--muted);font-size:14px">From survey-grade 3D documentation to production-ready assets for games and XR — our delivery matches professional workflows and standards.</p>
-          </div>
         </div>
       </section>
 
       <section id="about">
-        <h2>About Twintify</h2>
+        <h2>About Us</h2>
         <p>Twintify is a specialised practice founded by <strong>Ramesh Balasubramanian</strong>, an architect and geomatics engineer. We combine architectural insight with digital surveying and modelling to provide reliable digital twins for projects across conservation, architecture, and immersion.</p>
+      </section>
+
+      <section id="goals">
+        <h2>Our Goals</h2>
+        <div class="goals">
+          <div class="goal">
+            <strong>1. Heritage Conservation</strong>
+            <p>Preserve, restore, extend life, or enable adaptive reuse of valuable historic buildings through 3D cultural heritage informatics.</p>
+          </div>
+          <div class="goal">
+            <strong>2. Future-Sustaining Design</strong>
+            <p>Design and create durable, value-rich buildings rooted in traditional and scientific principles—structures that endure for centuries.</p>
+          </div>
+          <div class="goal">
+            <strong>3. Immersive Environments</strong>
+            <p>Support storytellers and XR developers in building photorealistic environments for meaningful immersion.</p>
+          </div>
+        </div>
       </section>
 
       <section id="services">
         <h2>Divisions & Services</h2>
-        <p class="lead">Our work is organised into four divisions so clients can clearly find what they need.</p>
-
-        <div class="grid-2">
-          <div>
-            <h3>Twintify: Art</h3>
-            <div class="services-list">
-              <div class="service">
-                <h4>Digital Asset Creation (3D modeling)</h4>
-                <p>High-fidelity 3D models for design, visualization and game-ready assets.</p>
-              </div>
-              <div class="service">
-                <h4>Digitising Physical Assets (Photogrammetry)</h4>
-                <p>Accurate capture of artworks, sculptures and objects for preservation and reuse.</p>
-              </div>
-              <div class="service">
-                <h4>Digital Asset Curation</h4>
-                <p>Organising and optimising assets for integration into projects or pipelines.</p>
-              </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1200&auto=format&fit=crop" alt="3D Art">
+            <div class="content">
+              <h4>Twintify: Art</h4>
+              <p>Digital Asset Creation (3D modeling), Photogrammetry, and Asset Curation.</p>
             </div>
           </div>
 
-          <div>
-            <h3>Twintify: Architecture</h3>
-            <div class="services-list">
-              <div class="service">
-                <h4>Architecture & Interior Design</h4>
-                <p>Design that responds to context, craft and longevity.</p>
-              </div>
-              <div class="service">
-                <h4>Building Information Modelling (BIM)</h4>
-                <p>Authoritative BIM models for coordination, simulation and delivery.</p>
-              </div>
-              <div class="service">
-                <h4>Adaptive Reuse & Surveying</h4>
-                <p>Practical solutions for reusing existing buildings and accurate site surveys to inform design.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="grid-2">
-          <div>
-            <h3>Twintify: Heritage</h3>
-            <div class="services-list">
-              <div class="service">
-                <h4>3D Documentation (Built Heritage)</h4>
-                <p>Survey-grade recording to support conservation, condition mapping and research.</p>
-              </div>
-              <div class="service">
-                <h4>Heritage Building Information Modelling (HBIM)</h4>
-                <p>Structured digital records for long-term asset management and intervention planning.</p>
-              </div>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop" alt="Architecture">
+            <div class="content">
+              <h4>Twintify: Architecture</h4>
+              <p>Architecture & Interior Design, BIM, Adaptive Reuse, and Surveying.</p>
             </div>
           </div>
 
-          <div>
-            <h3>Twintify: Immersion</h3>
-            <div class="services-list">
-              <div class="service">
-                <h4>Architectural Visualization</h4>
-                <p>Photoreal visualisations to communicate design and intention to stakeholders.</p>
-              </div>
-              <div class="service">
-                <h4>Environment Creation</h4>
-                <p>Production-ready environments for XR, games and immersive storytelling.</p>
-              </div>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1200&auto=format&fit=crop" alt="Heritage">
+            <div class="content">
+              <h4>Twintify: Heritage</h4>
+              <p>3D Documentation of built heritage and Heritage Building Information Modelling (HBIM).</p>
             </div>
           </div>
-        </div>
 
-      </section>
-
-      <section id="goals">
-        <h2>Our goals</h2>
-        <p class="lead">Twintify focuses on measurable outcomes that support conservation, long-term value and immersion.</p>
-
-        <div class="goals">
-          <div class="goal">
-            <strong>1. Heritage Conservation</strong>
-            <p>Preserve, restore, extend life, or enable adaptive reuse of valuable historic buildings through 3D cultural heritage informatics—equipping conservators with the data needed for informed decisions.</p>
-          </div>
-
-          <div class="goal">
-            <strong>2. Future-Sustaining Design</strong>
-            <p>Design, create and recreate durable, value-rich buildings rooted in traditional and scientific principles—buildings intended to hold cultural and material value for centuries.</p>
-          </div>
-
-          <div class="goal">
-            <strong>3. Immersive Environments</strong>
-            <p>Support storytellers and virtual world developers in building photorealistic environments—an essential component of meaningful immersion.</p>
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1600585154084-9947b1f8a73c?q=80&w=1200&auto=format&fit=crop" alt="Immersion">
+            <div class="content">
+              <h4>Twintify: Immersion</h4>
+              <p>Architectural Visualization and Environment Creation for XR and games.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="clients">
-        <h2>Clients we serve</h2>
-        <p class="lead">We work with professionals who require precision, robust data and production-ready deliverables.</p>
+        <h2>Clients We Serve</h2>
+        <p class="lead">We collaborate with professionals who require precision and production-ready deliverables.</p>
         <ul class="clients">
           <li>Architects</li>
           <li>Promoters & Developers</li>
@@ -236,57 +187,23 @@
           <li>Game & XR Developers</li>
           <li>Residential & Hospitality Designers</li>
         </ul>
-
-        <p style="color:var(--muted);font-size:14px;margin-top:8px">If your project requires verified survey data, HBIM, simulation-ready models or photoreal environments, we tailor deliverables to your workflow and standards.</p>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
         <p class="lead">Discuss a project, request a quote, or ask about technical specifics.</p>
-
-        <div style="display:flex;gap:18px;flex-wrap:wrap">
-          <div style="flex:1;min-width:260px" class="card">
-            <div style="padding:18px">
-              <form action="#" onsubmit="alert('Replace this with your form endpoint or mailto link.');return false;">
-                <label style="font-weight:600;display:block;margin-bottom:8px">Name</label>
-                <input required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee;margin-bottom:12px" />
-                <label style="font-weight:600;display:block;margin-bottom:8px">Email</label>
-                <input required type="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee;margin-bottom:12px" />
-                <label style="font-weight:600;display:block;margin-bottom:8px">Message</label>
-                <textarea required style="width:100%;min-height:120px;padding:10px;border-radius:8px;border:1px solid #e6e9ee"></textarea>
-                <div style="margin-top:12px"><button class="btn primary" type="submit">Send message</button></div>
-              </form>
-            </div>
-          </div>
-
-          <div style="flex:1;min-width:260px;align-self:center">
-            <div style="background:linear-gradient(180deg,#ffffff,#fbfdff);padding:18px;border-radius:12px;border:1px solid #eef2f6">
-              <h4 style="margin:0 0 6px">Office</h4>
-              <p style="margin:0;color:var(--muted);font-size:14px">Twintify — Digital Twin practice
-                <br/>Email: <a href="mailto:hello@twintify.com">hello@twintify.com</a>
-                <br/>Location: Chennai, India (example)</p>
-              <div style="height:12px"></div>
-              <strong>Quick notes</strong>
-              <p style="margin:8px 0 0;color:var(--muted);font-size:14px">We provide production-ready models for simulation, HBIM deliverables, survey data and photoreal assets. Tell us your required accuracy and output formats.</p>
-            </div>
-          </div>
-        </div>
-
+        <p>Email: <a href="mailto:hello@twintify.com">hello@twintify.com</a></p>
+        <p>Location: Chennai, India (example)</p>
       </section>
-
     </main>
 
     <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div style="font-size:13px;color:var(--muted)">© <span id="yr"></span> Twintify. All rights reserved.</div>
-        <div style="color:var(--muted);font-size:13px">Built for professionals — architects, conservators and immersive studios.</div>
+        <div style="font-size:13px;color:var(--muted)">Built for architects, conservators & immersive studios.</div>
       </div>
     </footer>
-
   </div>
-
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
