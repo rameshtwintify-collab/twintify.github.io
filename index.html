@@ -1,27 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Site Title</title>
-  <meta name="description" content="One-page site — replace this text." />
-  <style>
-    /* Simple, responsive center layout */
-    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:2rem;box-sizing:border-box}
-    .card{max-width:900px;width:100%;text-align:center;padding:2rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
-    h1{margin:.2rem 0;font-size:clamp(1.6rem,3.5vw,2.4rem)}
-    p{color:#333;line-height:1.5}
-    a.cta{display:inline-block;margin-top:1rem;padding:.6rem 1.2rem;border-radius:8px;text-decoration:none;border:1px solid #222}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twintify: Digital Twin Company</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <main class="wrap">
-    <section class="card">
-      <h1>Your Project / Business Name</h1>
-      <p>Short pitch or contact info. Edit this file in GitHub whenever you want to change the page.</p>
-      <a class="cta" href="mailto:you@example.com">Contact</a>
-    </section>
-  </main>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold">Twintify</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="hover:text-gray-300">About</a>
+        <a href="#services" class="hover:text-gray-300">Services</a>
+        <a href="#contact" class="hover:text-gray-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-20 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Digital Twin for Art, Architecture, Heritage & Immersion</h2>
+    <p class="text-lg max-w-2xl mx-auto">Empowering creativity and conservation with advanced digital twin technologies.</p>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" class="max-w-7xl mx-auto px-6 py-16">
+    <h3 class="text-3xl font-bold mb-6 text-center">About Us</h3>
+    <p class="text-lg leading-relaxed text-justify">
+      Twintify: Digital Twin Company, founded and led by <strong>Ramesh Balasubramanian</strong>, 
+      an Architect and Geomatics Engineer trained in India’s prestigious institutions, 
+      is dedicated to advancing the practice of digital twin technologies.  
+      Our mission is to bridge the domains of <strong>art, architecture, heritage, and immersion</strong>, 
+      providing cutting-edge digital solutions that support design innovation, heritage preservation, 
+      and immersive experiences.  
+    </p>
+    <p class="text-lg leading-relaxed mt-4 text-justify">
+      With expertise spanning from 3D documentation and photogrammetry to adaptive reuse, 
+      architectural visualization, and heritage BIM, Twintify offers a comprehensive portfolio of 
+      services to meet the needs of artists, architects, conservationists, and cultural institutions.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-10 text-center">Our Divisions & Services</h3>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Twintify Art -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <img src="https://cdn-icons-png.flaticon.com/512/3079/3079165.png" alt="Art Icon" class="h-16 mb-4">
+          <h4 class="text-xl font-semibold mb-3">Twintify: Art</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>Digital Asset Creation (3D Modeling)</li>
+            <li>Digitising Physical Assets (Photogrammetry)</li>
+            <li>Digital Asset Curation for Projects</li>
+          </ul>
+        </div>
+
+        <!-- Twintify Architecture -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <img src="https://cdn-icons-png.flaticon.com/512/889/889111.png" alt="Architecture Icon" class="h-16 mb-4">
+          <h4 class="text-xl font-semibold mb-3">Twintify: Architecture</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>Architecture and Interior Design</li>
+            <li>Building Information Modelling (BIM)</li>
+            <li>Adaptive Reuse Solutions and Design</li>
+            <li>Surveying</li>
+          </ul>
+        </div>
+
+        <!-- Twintify Heritage -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <img src="https://cdn-icons-png.flaticon.com/512/3003/3003335.png" alt="Heritage Icon" class="h-16 mb-4">
+          <h4 class="text-xl font-semibold mb-3">Twintify: Heritage</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>3D Documentation (Built Heritage)</li>
+            <li>Heritage Building Information Modelling (HBIM)</li>
+          </ul>
+        </div>
+
+        <!-- Twintify Immersion -->
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <img src="https://cdn-icons-png.flaticon.com/512/3222/3222798.png" alt="Immersion Icon" class="h-16 mb-4">
+          <h4 class="text-xl font-semibold mb-3">Twintify: Immersion</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>Architectural Visualization</li>
+            <li>Environment Creation</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-7xl mx-auto px-6 py-16">
+    <h3 class="text-3xl font-bold mb-6 text-center">Contact Us</h3>
+    <div class="text-lg text-center">
+      <p><strong>Ramesh B</strong></p>
+      <p>No 16/3, Jai Balaji Nagar Main Road, Nesapakkam, Chennai 600078</p>
+      <p>📞 +91-8148382063</p>
+      <p>📧 <a href="mailto:ramesh@twintify.com" class="text-blue-600 hover:underline">ramesh@twintify.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Twintify: Digital Twin Company. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
